@@ -34,8 +34,8 @@ function App() {
       </ul>
 
       <div className="button-container">
-        <button onClick={() => setShowResults(!showResults)}>
-          Show Results
+        <button className="show-results-button" onClick={() => setShowResults(!showResults)}>
+          Results
         </button>
       </div>
 
