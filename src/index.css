@@ -1,4 +1,4 @@
-.App {
+.MiniPoll {
   text-align: center;
   background-color: #f0f0f0;
   padding: 20px;
@@ -25,24 +25,34 @@ li {
   list-style-type: none;
 }
 
-li.framework-item {
-  border-radius: 3px;
+.framework-item,
+.result-item {
   font-weight: bold;
   text-align: center;
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 50px;
-  height: 30px;
-  color: cadetblue;
   background-color: white;
-  border: 2px solid cadetblue;
+  color: cadetblue;
   margin: 8px;
+  border-radius: 3px;
 }
 
-li.framework-item:hover {
+.framework-item {
+  width: 50px;
+  height: 30px;
+  border: 2px solid cadetblue;
+}
+
+.framework-item:hover {
   background-color: cadetblue;
   color: white;
+}
+
+.result-item {
+  width: 100px;
+  height: 30px;
+  margin: 8px auto;
 }
 
 .button-container {
@@ -51,11 +61,8 @@ li.framework-item:hover {
   justify-content: center;
 }
 
-.show-results-button {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 3px;
+.show-results-button,
+.reset-button {
   font-weight: bold;
   text-align: center;
   display: flex;
@@ -63,14 +70,15 @@ li.framework-item:hover {
   justify-content: center;
   width: 80px;
   height: 80px;
-  border-radius: 80px;
+  border-radius: 50%;
   color: cadetblue;
   background-color: white;
   border: 2px solid cadetblue;
   margin: 8px;
 }
 
-.show-results-button:hover {
+          
+.show-results-button:hover, .reset-button:hover {
   background-color: cadetblue;
   color: white;
 }
@@ -83,18 +91,4 @@ li.framework-item:hover {
   margin: 16px 0;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   color: cadetblue;
-}
-
-li.result-item {
-  list-style-type: none;
-  font-weight: bold;
-  text-align: center;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100px;
-  height: 30px;
-  color: cadetblue;
-  background-color: white;
-  margin: 8px auto;
 }
