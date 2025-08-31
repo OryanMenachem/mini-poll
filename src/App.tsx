@@ -1,35 +1,56 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useState } from "react";
+import "./App.css";
 
 function App() {
-  const [count, setCount] = useState(0)
+  const frameworks = ["react", "vue", "svelte"];
+  const [reactVotes, setReactVotes] = useState(0);
+  const [vueVotes, setVueVotes] = useState(0);
+  const [svelteVotes, setSvelteVotes] = useState(0);
+  const [showResults, setShowResults] = useState(false);
 
+  
+  const frameworksVotes = {
+    react: setReactVotes,
+    vue: setVueVotes,
+    svelte: setSvelteVotes,
+  } ;
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
+    <div className="App">
+      <h1 className="title">Mini Poll</h1>
+      <ul className="framework-list">
+        {frameworks.map((framework, index) => (
+          <li
+            className="framework-item"
+            key={index}
+            onClick={() => {
+              frameworksVotes[framework as keyof typeof frameworksVotes](
+                (prev) => prev + 1
+              );
+            }}
+          >
+            {framework}
+          </li>
+        ))}
+      </ul>
+
+      <div className="button-container">
+        <button onClick={() => setShowResults(!showResults)}>
+          Show Results
         </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
       </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+
+      {showResults && (
+        <div className="result">
+          <h2>Results</h2>
+          <ul>
+            <li className="result-item">React: {reactVotes}</li>
+            <li className="result-item">Vue: {vueVotes}</li>
+            <li className="result-item">Svelte: {svelteVotes}</li>
+          </ul>
+        </div>
+      )}
+    </div>
+  );
 }
 
-export default App
+export default App;
